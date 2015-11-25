@@ -102,6 +102,7 @@ public class GorevController {
             gorev.setId(primId);
         }
 
+        
         service.deleteById(gorev);
 
         obj.put("success", true);
