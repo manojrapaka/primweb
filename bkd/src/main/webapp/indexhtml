@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<script type="text/javascript" src="resources/js/jquery-2.1.4.js"></script>
+		
+		<script>
+			function callAjax(){
+				
+				if($('#loginForm')[0].checkValidity()){
+					$.ajax({
+						  url: "login/userLogin.ajax",
+						  method : 'POST',
+						  data: { name: $("#name").val(), email: $("#email").val() }
+						})
+						  .done(function( msg ) {
+							  
+							  alert("işlem tamamlandı");
+							$('#result').html("");
+							var res = JSON.parse(msg);
+							if(res.success){
+								$('#result').html(res.success);
+								$('#result').append("<br>"+JSON.stringify(res.data));
+								
+								$("#name").val("");
+								$("#email").val("");
+							} else {
+								$('#result').html(res.success);
+								$('#result').append(res.error);
+							}
+						  });
+				}
+			}
+		</script>
+		
+	</head>
+	<body>
+		<form id="loginForm">
+			<h1>Anasayfa</h1>
+			<label>Name: </label>
+			<input type="text" name="name" value="" id="name" required/>
+			<label>Email: </label>
+			<input type="email" name="email" value="" id="email" required/>
+			<input type="button" value="Kayıt" name="kayit" onclick="callAjax();" />
+		</form>
+		<div id="result"></div>
+	</body>
+</html>

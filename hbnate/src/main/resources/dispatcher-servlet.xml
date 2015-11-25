@@ -1,0 +1,100 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation=" 
+	    	http://www.springframework.org/schema/beans 
+	    	http://www.springframework.org/schema/beans/spring-beans-4.1.xsd 
+	    	http://www.springframework.org/schema/context
+	        http://www.springframework.org/schema/context/spring-context-4.1.xsd
+	        http://www.springframework.org/schema/mvc 
+	        http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+	        http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+
+	<mvc:annotation-driven /> <!-- component scan annotation config icin gerekli alan -->
+	<context:component-scan base-package="tr.com.*" />
+
+	<!-- <session-factory> <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property> 
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property> 
+		<property name="hibernate.connection.username">postgres</property> <property 
+		name="hibernate.connection.password">password</property> <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernatedb</property> 
+		<property name="connection_pool_size">1</property> <property name="hbm2ddl.auto">create</property> 
+		<property name="show_sql">true</property> hsql db config org.hibernate.dialect.HSQLDialect 
+		jdbc:hsqldb:mem://personDb -->
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="tr.com.entities" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+				<!-- 
+					sping has own transaction management, so we couldn't do the following unless we 
+					don't want to manage manually. Generic Hibernate DAO useages...
+				-->
+				<!-- <prop key="hibernate.current_session_context_class">thread</prop> --> 
+				<prop key="hibernate.show_sql">true</prop>
+				
+				<!-- 
+					hibernate.hbm2ddl.auto Automatically validates or exports schema DDL 
+					to the database when the SessionFactory is created. 
+					With create-drop, the database schema will be dropped when the 
+					SessionFactory is closed explicitly.
+					- validate: validate the schema, makes no changes to the database.
+					- update: update the schema.
+					- create: creates the schema, destroying previous data.
+					- create-drop: drop the schema at the end of the session
+				 -->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/prim" />
+		<property name="username" value="prim" />
+		<property name="password" value="prim" />
+	</bean>
+
+	<!-- hsql db connection -->
+
+	<!-- <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> 
+		<property name="dataSource" ref="dataSource" /> <property name="packagesToScan" 
+		value="tr.com.entities" /> <property name="hibernateProperties"> <props> 
+		<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop> <prop 
+		key="hibernate.current_session_context_class">thread</prop> </props> </property> 
+		</bean> <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" /> <property 
+		name="url" value="jdbc:hsqldb:mem://personDb" /> <property name="username" 
+		value="sa" /> <property name="password" value="" /> </bean> -->
+
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<bean id="persistenceExceptionTranslationPostProcessor"
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+	<!-- -->
+
+	<!-- <bean id="dbUtil" class="tr.com.util.GenericDao" init-method="initialize"> 
+		<property name="dataSource" ref="dataSource" /> </bean> -->
+
+
+	<mvc:interceptors>
+		<bean class="tr.com.interceptors.RequestEncodingInterceptor"></bean>
+	</mvc:interceptors>
+
+</beans>

@@ -1,0 +1,140 @@
+@CHARSET "UTF-8";
+
+.searchResHeader {
+	color: Red;
+}
+
+/* 24px */
+.btnIconSatis24 {
+	background-image: url('../../icons/24/action_log.png');
+}
+
+.btnIconHakedis24 {
+	background-image: url('../../icons/24/3d_glasses.png');
+}
+
+.btnIconHavuz24 {
+	background-image: url('../../icons/24/basket_put.png');
+}
+
+.btnIconKullanici24 {
+	background-image: url('../../icons/24/user.png');
+}
+
+.btnIconPrim24 {
+	background-image: url('../../icons/24/wallet.png');
+}
+
+.btnIconGrup24 {
+	background-image: url('../../icons/24/group_link.png');
+}
+
+.btnIconUlke24 {
+	background-image: url('../../icons/24/google_map.png');
+}
+
+.btnIconGorev24 {
+	background-image: url('../../icons/24/cog.png');
+}
+
+.btnIconCalisan24 {
+	background-image: url('../../icons/24/pencil.png');
+}
+/* 24px */
+
+/* 16px */
+.btnIconSatis16 {
+	background-image: url('../../icons/16/action_log.png');
+}
+
+.btnIconHakedis16 {
+	background-image: url('../../icons/16/3d_glasses.png');
+}
+
+.btnIconHavuz16 {
+	background-image: url('../../icons/16/basket_put.png');
+}
+
+.btnIconKullanici16 {
+	background-image: url('../../icons/16/user.png');
+}
+
+.btnIconPrim16 {
+	background-image: url('../../icons/16/wallet.png');
+}
+
+.btnIconGrup16 {
+	background-image: url('../../icons/16/group_link.png');
+}
+
+.btnIconUlke16 {
+	background-image: url('../../icons/16/google_map.png');
+}
+
+.btnIconGorev16 {
+	background-image: url('../../icons/16/cog.png');
+}
+
+.btnIconCalisan16 {
+	background-image: url('../../icons/16/pencil.png');
+}
+/* 16px */
+.iconXml {
+	background-image: url('../../icons/16/file_extension_xls.png');
+}
+
+.iconPdf {
+	background-image: url('../../icons/16/file_extension_pdf.png');
+}
+
+.iconCategoryGrouping {
+	background-image: url('../../icons/16/category_group.png');
+}
+
+.iconApplicationHomePage16 {
+	background-image: url('../../icons/16/home_page.png');
+}
+
+.iconUploadIhale16 {
+	background-image: url('../../icons/16/inbox_upload.png');
+}
+
+.iconSearch16 {
+	background-image: url('../../icons/16/google_custom_search.png');
+}
+
+.iconClearData16 {
+	background-image: url('../../icons/16/arrow_refresh.png');
+}
+
+.iconClearForm16 {
+	background-image: url('../../icons/16/broom.png');
+}
+
+.iconTick16 {
+	background-image: url('../../icons/16/tick.png');
+}
+
+.iconCancel16 {
+	background-image: url('../../icons/16/cancel.png');
+}
+
+.iconForm16 {
+	background-image: url('../../icons/16/application_form.png');
+}
+
+.iconRowDelete16 {
+	background-image: url('../../icons/16/delete.png');
+}
+
+.icon-user {
+	background-image: url('../images/icons/user_add.gif');
+}
+
+.icn-user-add {
+	background-image: url('../images/icons/user_add.gif');
+}
+
+.icn-user-delete {
+	background-image: url('../images/icons/user_delete.gif');
+}
