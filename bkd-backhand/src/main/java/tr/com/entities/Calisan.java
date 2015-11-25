@@ -17,7 +17,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "calisan")
-public class Calisan {
+public class Calisan implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
