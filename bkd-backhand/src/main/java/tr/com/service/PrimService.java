@@ -13,22 +13,22 @@ import tr.com.entities.Prim;
 @EnableTransactionManagement
 public class PrimService {
 
-	@Autowired
-	private PrimDao primDao;
+    @Autowired
+    private PrimDao primDao;
 
-	public void saveOrUpdate(Prim prim) {
-		primDao.saveOrUpdate(prim);
-	}
+    public void saveOrUpdate(Prim prim) {
+        primDao.saveOrUpdate(prim);
+    }
 
-	public List<Prim> getAll() {
-		return primDao.getAll();
-	}
+    public List<Prim> getAll() {
+        return primDao.getAll();
+    }
 
-	public void deleteById(Prim prim) {
-		primDao.deleteById(prim);		
-	}
+    public void deleteById(Prim prim) {
+        primDao.deleteById(prim);
+    }
 
-	public Prim getById(Long primId) {
-		return primDao.getById(primId);
-	}
+    public Prim getById(Long primId) {
+        return primDao.getById(primId);
+    }
 }

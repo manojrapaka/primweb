@@ -13,18 +13,22 @@ import tr.com.entities.Kullanici;
 @EnableTransactionManagement
 public class KullaniciService {
 
-	@Autowired
-	private KullaniciDao kullaniciDao;
+    @Autowired
+    private KullaniciDao kullaniciDao;
 
-	public void saveOrUpdate(Kullanici kullanici) {
-		kullaniciDao.saveOrUpdate(kullanici);
-	}
+    public void saveOrUpdate(Kullanici kullanici) {
+        kullaniciDao.saveOrUpdate(kullanici);
+    }
 
-	public List<Kullanici> getAll() {
-		return kullaniciDao.getAll();
-	}
+    public List<Kullanici> getAll() {
+        return kullaniciDao.getAll();
+    }
 
-	public void deleteById(Kullanici kullanici) {
-		kullaniciDao.deleteById(kullanici);		
-	}
+    public void deleteById(Kullanici kullanici) {
+        kullaniciDao.deleteById(kullanici);
+    }
+
+    public Kullanici getById(Long kullaniciId) {
+        return kullaniciDao.getById(kullaniciId);
+    }
 }

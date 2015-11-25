@@ -13,18 +13,22 @@ import tr.com.entities.Gorev;
 @EnableTransactionManagement
 public class GorevService {
 
-	@Autowired
-	private GorevDao gorevDao;
+    @Autowired
+    private GorevDao gorevDao;
 
-	public void saveOrUpdate(Gorev gorev) {
-		gorevDao.saveOrUpdate(gorev);
-	}
+    public void saveOrUpdate(Gorev gorev) {
+        gorevDao.saveOrUpdate(gorev);
+    }
 
-	public List<Gorev> getAll() {
-		return gorevDao.getAll();
-	}
+    public List<Gorev> getAll() {
+        return gorevDao.getAll();
+    }
 
-	public void deleteById(Gorev gorev) {
-		gorevDao.deleteById(gorev);		
-	}
+    public void deleteById(Gorev gorev) {
+        gorevDao.deleteById(gorev);
+    }
+
+    public Gorev getById(Long gorevId) {
+        return gorevDao.getById(gorevId);
+    }
 }

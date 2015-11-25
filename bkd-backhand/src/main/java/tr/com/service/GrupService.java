@@ -13,22 +13,22 @@ import tr.com.entities.Grup;
 @EnableTransactionManagement
 public class GrupService {
 
-	@Autowired
-	private GrupDao grupDao;
+    @Autowired
+    private GrupDao grupDao;
 
-	public void saveOrUpdate(Grup grup) {
-		grupDao.saveOrUpdate(grup);
-	}
+    public void saveOrUpdate(Grup grup) {
+        grupDao.saveOrUpdate(grup);
+    }
 
-	public List<Grup> getAll() {
-		return grupDao.getAll();
-	}
+    public List<Grup> getAll() {
+        return grupDao.getAll();
+    }
 
-	public void deleteById(Grup grup) {
-		grupDao.deleteById(grup);		
-	}
+    public void deleteById(Grup grup) {
+        grupDao.deleteById(grup);
+    }
 
-	public Grup getById(Long grupId) {
-		return grupDao.getById(grupId);
-	}
+    public Grup getById(Long grupId) {
+        return grupDao.getById(grupId);
+    }
 }
